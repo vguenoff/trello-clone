@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState, SyntheticEvent } from 'react'
 
 import styles from '@/styles/AddItem.module.scss'
 
@@ -11,17 +11,31 @@ interface Props {
 export default function AddItem({ dark, onAdd, mainButtonText }: Props) {
     const [showAddForm, setShowAddForm] = useState(false)
     const [inputValue, setInputValue] = useState('')
+    const inputRef = useRef<HTMLInputElement>(null)
+
+    useEffect(() => {
+        inputRef.current?.focus()
+    }, [showAddForm])
+
+    const onSubmit = (e: SyntheticEvent) => {
+        e.preventDefault()
+
+        onAdd(inputValue)
+        setInputValue('')
+        setShowAddForm(false)
+    }
 
     return (
         <>
             {showAddForm ? (
-                <div className={styles.addItemForm}>
+                <form className={styles.addItemForm} {...{ onSubmit }}>
                     <input
                         value={inputValue}
                         onChange={e => setInputValue(e.target.value)}
+                        ref={inputRef}
                     />
-                    <button onClick={() => onAdd(inputValue)}>Create</button>
-                </div>
+                    <button type="submit">Create</button>
+                </form>
             ) : (
                 <button
                     className={styles.addItem}
