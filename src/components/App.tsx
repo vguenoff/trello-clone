@@ -1,9 +1,10 @@
 import styles from '@/styles/App.module.scss'
+import Column from '@/components/Column'
 
 export default function App() {
     return (
         <div className={styles.App}>
-            <h1>Vite + React</h1>
+            <Column title="Todo: " />
         </div>
     )
 }
