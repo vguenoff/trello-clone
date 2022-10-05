@@ -2,6 +2,11 @@ html {
     box-sizing: border-box;
 }
 
+body {
+    margin: 0;
+    padding: 0;
+}
+
 *,
 *:before,
 *:after {
@@ -21,19 +26,12 @@ body,
     font-weight: 400;
 
     color-scheme: light dark;
-    color: rgba(255, 255, 255, 0.87);
-    background-color: #242424;
+    color: darkblue;
+    background-color: #ffffff;
 }
 
-@media (prefers-color-scheme: light) {
-    :root {
-        color: #213547;
-        background-color: #ffffff;
-    }
-    a:hover {
-        color: #747bff;
-    }
-    button {
-        background-color: #f9f9f9;
-    }
+div,
+input,
+button {
+    border-radius: 3px;
 }

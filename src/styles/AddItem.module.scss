@@ -1,0 +1,42 @@
+.addItemForm {
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-start;
+
+    input {
+        border: none;
+        box-shadow: #091e4240 0px 1px 0px 0px;
+        margin-bottom: 10px;
+        padding: 10px;
+        width: 100%;
+        color: inherit;
+        background-color: azure;
+    }
+
+    button {
+        background-color: lightseagreen;
+        border: none;
+        box-shadow: none;
+        color: #fff;
+        padding: 6px 12px;
+        text-align: center;
+    }
+}
+
+.addItem {
+    cursor: pointer;
+    background-color: #ffffff3d;
+
+    border: none;
+    max-width: 300px;
+    padding: 10px 12px;
+    text-align: left;
+    transition: background 85ms ease-in;
+    width: 100%;
+
+    &:hover {
+        background-color: #ffffff52;
+    }
+}
