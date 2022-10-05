@@ -5,5 +5,5 @@ interface Props {
 }
 
 export default function Card({ children }: Props) {
-    return <div className={styles.Card}>{children}</div>
+    return <div className={styles.card}>{children}</div>
 }
