@@ -6,7 +6,7 @@ import { useListStore } from '@/store'
 
 import styles from '@/styles/Tasks.module.scss'
 
-export default function Tasks({ id: columnId, title, tasks }: List) {
+export default function Tasks({ id: listId, title, tasks }: List) {
     const { addItem } = useListStore()
 
     return (
@@ -17,7 +17,7 @@ export default function Tasks({ id: columnId, title, tasks }: List) {
             })}
             <AddItem
                 mainButtonText="+ Add another item"
-                onAdd={item => addItem({ id: columnId, payload: item })}
+                onAdd={({ id, text }) => addItem({ listId, taskId: id, text })}
                 dark
             />
         </div>

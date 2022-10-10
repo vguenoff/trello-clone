@@ -10,11 +10,18 @@ export interface List {
 }
 
 export interface AddItemParams {
-    id: string
-    payload: { id: string; text: string }
+    listId: string
+    taskId: string
+    text: string
+}
+
+export interface AddListParams {
+    listId: string
+    title: string
 }
 
 export interface ListState {
     lists: List[]
-    addItem({ id, payload }: AddItemParams): void
+    addItem({ listId, taskId, text }: AddItemParams): void
+    addList({ listId, title }: AddListParams): void
 }

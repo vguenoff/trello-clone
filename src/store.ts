@@ -4,20 +4,28 @@ import { devtools } from 'zustand/middleware'
 import { mountStoreDevtool } from 'simple-zustand-devtools'
 
 import { initialList } from '@/data'
-import { AddItemParams, List, ListState } from '@/types'
+import { List, ListState } from '@/types'
 
 const useListStore = create<ListState>()(
     devtools(
         set => ({
             lists: initialList,
-            addItem: ({ id, payload }: AddItemParams) =>
+            addItem({ listId, taskId, text }) {
                 set(
                     produce(({ lists }) => {
                         lists
-                            .find((list: List) => list.id === id)
-                            ?.tasks.push(payload)
+                            .find((list: List) => list.id === listId)
+                            ?.tasks.push({ id: taskId, text })
                     }),
-                ),
+                )
+            },
+            addList({ listId, title }) {
+                set(
+                    produce(({ lists }) => {
+                        lists.push({ id: listId, title, tasks: [] })
+                    }),
+                )
+            },
         }),
         { name: 'list-storage' },
     ),

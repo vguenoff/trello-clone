@@ -21,6 +21,8 @@ export default function AddItem({ dark, onAdd, mainButtonText }: Props) {
     const onSubmit = (e: SyntheticEvent) => {
         e.preventDefault()
 
+        if (!inputValue) return
+
         onAdd({ id: nanoid(), text: inputValue })
         setInputValue('')
         setShowAddForm(false)
