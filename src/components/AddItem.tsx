@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState, SyntheticEvent } from 'react'
-
 import { AddItemProps } from '@/types'
 import styles from '@/styles/AddItem.module.scss'
 
@@ -18,6 +17,10 @@ export default function AddItem({ dark, onAdd, mainButtonText }: AddItemProps) {
         if (!inputValue) return
 
         onAdd(inputValue)
+        clearInput()
+    }
+
+    const clearInput = () => {
         setInputValue('')
         setShowAddForm(false)
     }
@@ -25,7 +28,11 @@ export default function AddItem({ dark, onAdd, mainButtonText }: AddItemProps) {
     return (
         <>
             {showAddForm ? (
-                <form className={styles.addItemForm} {...{ onSubmit }}>
+                <form
+                    className={styles.addItemForm}
+                    {...{ onSubmit }}
+                    onKeyUp={e => e.key === 'Escape' && clearInput()}
+                >
                     <input
                         value={inputValue}
                         onChange={e => setInputValue(e.target.value)}

@@ -1,8 +1,6 @@
 import Tasks from '@/components/Tasks'
 import AddItem from '@/components/AddItem'
-
 import { useListStore } from '@/store'
-
 import styles from '@/styles/App.module.scss'
 
 export default function App() {

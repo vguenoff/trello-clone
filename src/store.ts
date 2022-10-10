@@ -3,7 +3,6 @@ import produce from 'immer'
 import { nanoid } from 'nanoid'
 import { devtools } from 'zustand/middleware'
 import { mountStoreDevtool } from 'simple-zustand-devtools'
-
 import { initialList } from '@/data'
 import { List, ListState } from '@/types'
 
@@ -37,4 +36,4 @@ if (process.env.NODE_ENV === 'development') {
     mountStoreDevtool('List Store', useListStore)
 }
 
-export { initialList, useListStore }
+export { useListStore }

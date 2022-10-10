@@ -1,9 +1,7 @@
 import Card from '@/components/Card'
 import AddItem from '@/components/AddItem'
-
 import { List } from '@/types'
 import { useListStore } from '@/store'
-
 import styles from '@/styles/Tasks.module.scss'
 
 export default function Tasks({ id: listId, title, tasks }: List) {
