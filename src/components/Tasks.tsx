@@ -1,15 +1,14 @@
-import styles from '@/styles/Tasks.module.scss'
 import Card from '@/components/Card'
 import AddItem from '@/components/AddItem'
 
-import { Task } from '@/types'
+import { List } from '@/types'
+import { useListStore } from '@/store'
 
-interface Props {
-    title: string
-    tasks: Task[]
-}
+import styles from '@/styles/Tasks.module.scss'
 
-export default function Tasks({ title, tasks }: Props) {
+export default function Tasks({ id: columnId, title, tasks }: List) {
+    const { addItem } = useListStore()
+
     return (
         <div className={styles.tasks}>
             <h3>{title}</h3>
@@ -18,7 +17,7 @@ export default function Tasks({ title, tasks }: Props) {
             })}
             <AddItem
                 mainButtonText="+ Add another item"
-                onAdd={console.log}
+                onAdd={item => addItem({ id: columnId, payload: item })}
                 dark
             />
         </div>

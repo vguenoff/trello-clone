@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState, SyntheticEvent } from 'react'
+import { nanoid } from 'nanoid'
 
 import styles from '@/styles/AddItem.module.scss'
 
 interface Props {
     dark?: boolean
-    onAdd(inputValue: string): void
+    onAdd({ text, id }: { id: string; text: string }): void
     mainButtonText: string
 }
 
@@ -20,7 +21,7 @@ export default function AddItem({ dark, onAdd, mainButtonText }: Props) {
     const onSubmit = (e: SyntheticEvent) => {
         e.preventDefault()
 
-        onAdd(inputValue)
+        onAdd({ id: nanoid(), text: inputValue })
         setInputValue('')
         setShowAddForm(false)
     }
