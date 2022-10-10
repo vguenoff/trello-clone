@@ -1,15 +1,9 @@
 import { useEffect, useRef, useState, SyntheticEvent } from 'react'
-import { nanoid } from 'nanoid'
 
+import { AddItemProps } from '@/types'
 import styles from '@/styles/AddItem.module.scss'
 
-interface Props {
-    dark?: boolean
-    onAdd({ text, id }: { id: string; text: string }): void
-    mainButtonText: string
-}
-
-export default function AddItem({ dark, onAdd, mainButtonText }: Props) {
+export default function AddItem({ dark, onAdd, mainButtonText }: AddItemProps) {
     const [showAddForm, setShowAddForm] = useState(false)
     const [inputValue, setInputValue] = useState('')
     const inputRef = useRef<HTMLInputElement>(null)
@@ -23,7 +17,7 @@ export default function AddItem({ dark, onAdd, mainButtonText }: Props) {
 
         if (!inputValue) return
 
-        onAdd({ id: nanoid(), text: inputValue })
+        onAdd(inputValue)
         setInputValue('')
         setShowAddForm(false)
     }

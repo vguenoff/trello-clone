@@ -1,5 +1,6 @@
 import create from 'zustand'
 import produce from 'immer'
+import { nanoid } from 'nanoid'
 import { devtools } from 'zustand/middleware'
 import { mountStoreDevtool } from 'simple-zustand-devtools'
 
@@ -10,19 +11,19 @@ const useListStore = create<ListState>()(
     devtools(
         set => ({
             lists: initialList,
-            addItem({ listId, taskId, text }) {
+            addItem({ listId, text }) {
                 set(
                     produce(({ lists }) => {
                         lists
                             .find((list: List) => list.id === listId)
-                            ?.tasks.push({ id: taskId, text })
+                            ?.tasks.push({ id: nanoid(), text })
                     }),
                 )
             },
-            addList({ listId, title }) {
+            addList(title) {
                 set(
                     produce(({ lists }) => {
-                        lists.push({ id: listId, title, tasks: [] })
+                        lists.push({ id: nanoid(), title, tasks: [] })
                     }),
                 )
             },

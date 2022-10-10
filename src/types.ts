@@ -11,17 +11,17 @@ export interface List {
 
 export interface AddItemParams {
     listId: string
-    taskId: string
     text: string
-}
-
-export interface AddListParams {
-    listId: string
-    title: string
 }
 
 export interface ListState {
     lists: List[]
-    addItem({ listId, taskId, text }: AddItemParams): void
-    addList({ listId, title }: AddListParams): void
+    addItem({ listId, text }: AddItemParams): void
+    addList(title: string): void
+}
+
+export interface AddItemProps {
+    dark?: boolean
+    onAdd(text: string): void
+    mainButtonText: string
 }

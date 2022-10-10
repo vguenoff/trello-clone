@@ -17,7 +17,7 @@ export default function Tasks({ id: listId, title, tasks }: List) {
             })}
             <AddItem
                 mainButtonText="+ Add another item"
-                onAdd={({ id, text }) => addItem({ listId, taskId: id, text })}
+                onAdd={text => addItem({ listId, text })}
                 dark
             />
         </div>

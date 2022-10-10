@@ -15,7 +15,7 @@ export default function App() {
             ))}
             <AddItem
                 mainButtonText="+ Add another list"
-                onAdd={({ id, text }) => addList({ listId: id, title: text })}
+                onAdd={title => addList(title)}
             />
         </section>
     )
