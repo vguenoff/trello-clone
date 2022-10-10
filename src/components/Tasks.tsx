@@ -1,18 +1,21 @@
-import styles from '@/styles/Column.module.scss'
+import styles from '@/styles/Tasks.module.scss'
 import Card from '@/components/Card'
 import AddItem from '@/components/AddItem'
 
+import { Task } from '@/types'
+
 interface Props {
     title: string
+    tasks: Task[]
 }
 
-export default function Column({ title }: Props) {
+export default function Tasks({ title, tasks }: Props) {
     return (
-        <div className={styles.column}>
+        <div className={styles.tasks}>
             <h3>{title}</h3>
-            <Card>Generate app scaffold</Card>
-            <Card>Learn TypeScript</Card>
-            <Card>Begin to use static typing</Card>
+            {tasks.map(({ text, id }) => {
+                return <Card key={id}>{text}</Card>
+            })}
             <AddItem
                 mainButtonText="+ Add another item"
                 onAdd={console.log}

@@ -13,6 +13,10 @@
         width: 100%;
         color: inherit;
         background-color: azure;
+
+        &:focus {
+            outline: 1px solid navy;
+        }
     }
 
     button {

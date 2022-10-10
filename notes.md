@@ -1,3 +1,3 @@
 # Components
 
-    App -> multiple columns -> (Column (Title) -> Card)
+    App -> multiple columns -> (Tasks (Title) -> Card)
