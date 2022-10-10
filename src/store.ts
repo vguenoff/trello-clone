@@ -1,6 +1,10 @@
+import create from 'zustand'
+import { devtools } from 'zustand/middleware'
+import { mountStoreDevtool } from 'simple-zustand-devtools'
+
 import { List } from '@/types'
 
-const lists: List[] = [
+const initialList: List[] = [
     {
         id: '0',
         title: 'To Do',
@@ -18,7 +22,32 @@ const lists: List[] = [
     },
 ]
 
-const getTasksByListId = (id: string) =>
-    lists.find(list => list.id === id)?.tasks || []
+// const getTasksByListId = (id: string) =>
+//     lists.find(list => list.id === id)?.tasks || []
 
-export { lists, getTasksByListId }
+interface ListState {
+    lists: List[]
+    // increase: (by: number) => void
+}
+
+const useListStore = create<ListState>()(
+    devtools(
+        set => ({
+            lists: initialList,
+            // increase: (by) => set((state) => ({ bears: state.bears + by })),
+        }),
+        {
+            name: 'list-storage',
+        },
+    ),
+)
+
+if (process.env.NODE_ENV === 'development') {
+    mountStoreDevtool('List Store', useListStore)
+}
+
+export {
+    initialList,
+    useListStore,
+    // getTasksByListId
+}

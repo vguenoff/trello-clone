@@ -3,9 +3,11 @@ import AddItem from '@/components/AddItem'
 
 import styles from '@/styles/App.module.scss'
 
-import { lists } from '@/store'
+import { useListStore } from '@/store'
 
 export default function App() {
+    const lists = useListStore(state => state.lists)
+
     return (
         <section className={styles.app}>
             {lists.map(({ id, title, tasks }) => (
