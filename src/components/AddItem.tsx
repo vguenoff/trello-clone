@@ -29,8 +29,8 @@ export default function AddItem({ dark, onAdd, mainButtonText }: AddItemProps) {
         <>
             {showAddForm ? (
                 <form
-                    className={styles.addItemForm}
                     {...{ onSubmit }}
+                    className={styles.addItemForm}
                     onKeyUp={e => e.key === 'Escape' && clearInput()}
                 >
                     <input

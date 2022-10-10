@@ -1,3 +1,4 @@
+// Store
 export interface Task {
     id: string
     text: string
@@ -19,7 +20,7 @@ export interface ListState {
     addItem({ listId, text }: AddItemParams): void
     addList(title: string): void
 }
-
+// Props
 export interface AddItemProps {
     dark?: boolean
     onAdd(text: string): void
