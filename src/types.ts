@@ -29,7 +29,8 @@ export interface ListState {
 }
 // Props
 export interface AddItemProps {
+    children?: React.ReactNode
+    actionButtonText: string
+    onSet(text: string): void
     dark?: boolean
-    onAdd(text: string): void
-    mainButtonText: string
 }

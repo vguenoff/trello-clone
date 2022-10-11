@@ -1,5 +1,5 @@
 import Tasks from '@/components/Tasks'
-import AddItem from '@/components/AddItem'
+import SetItem from '@/components/SetItem'
 import { useListStore } from '@/store'
 import styles from '@/styles/App.module.scss'
 
@@ -11,10 +11,9 @@ export default function App() {
             {lists.map(({ id, title, tasks }) => (
                 <Tasks key={id} {...{ id, title, tasks }} />
             ))}
-            <AddItem
-                mainButtonText="+ Add another list"
-                onAdd={title => addList(title)}
-            />
+            <SetItem actionButtonText="Create" onSet={title => addList(title)}>
+                + Add another list
+            </SetItem>
         </section>
     )
 }

@@ -11,6 +11,24 @@ const useListStore = create<ListState>()(
         set => ({
             lists: initialList,
             // Actions
+            addList(title) {
+                set(
+                    produce(({ lists }) => {
+                        lists.push({ id: nanoid(), title, tasks: [] })
+                    }),
+                )
+            },
+            removeList(listId) {
+                set(
+                    produce(({ lists }) => {
+                        const listIndex = lists.findIndex(
+                            (list: List) => list.id === listId,
+                        )
+
+                        lists = lists.splice(listIndex, 1)
+                    }),
+                )
+            },
             addItem({ listId, text }) {
                 set(
                     produce(({ lists }) => {
@@ -36,24 +54,6 @@ const useListStore = create<ListState>()(
             },
             // editItem
             // moveItem
-            addList(title) {
-                set(
-                    produce(({ lists }) => {
-                        lists.push({ id: nanoid(), title, tasks: [] })
-                    }),
-                )
-            },
-            removeList(listId) {
-                set(
-                    produce(({ lists }) => {
-                        const listIndex = lists.findIndex(
-                            (list: List) => list.id === listId,
-                        )
-
-                        lists = lists.splice(listIndex, 1)
-                    }),
-                )
-            },
         }),
         { name: 'list-storage' },
     ),

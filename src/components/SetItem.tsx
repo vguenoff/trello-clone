@@ -1,8 +1,13 @@
 import { useEffect, useRef, useState, SyntheticEvent } from 'react'
 import { AddItemProps } from '@/types'
-import styles from '@/styles/AddItem.module.scss'
+import styles from '@/styles/SetItem.module.scss'
 
-export default function AddItem({ dark, onAdd, mainButtonText }: AddItemProps) {
+export default function SetItem({
+    children,
+    actionButtonText,
+    onSet,
+    dark,
+}: AddItemProps) {
     const [showAddForm, setShowAddForm] = useState(false)
     const [inputValue, setInputValue] = useState('')
     const inputRef = useRef<HTMLInputElement>(null)
@@ -16,7 +21,7 @@ export default function AddItem({ dark, onAdd, mainButtonText }: AddItemProps) {
 
         if (!inputValue) return
 
-        onAdd(inputValue)
+        onSet(inputValue)
         clearInput()
     }
 
@@ -38,7 +43,7 @@ export default function AddItem({ dark, onAdd, mainButtonText }: AddItemProps) {
                         onChange={e => setInputValue(e.target.value)}
                         ref={inputRef}
                     />
-                    <button type="submit">Create</button>
+                    <button type="submit">{actionButtonText}</button>
                 </form>
             ) : (
                 <button
@@ -46,7 +51,7 @@ export default function AddItem({ dark, onAdd, mainButtonText }: AddItemProps) {
                     style={{ color: dark ? 'navy' : 'white' }}
                     onClick={() => setShowAddForm(true)}
                 >
-                    {mainButtonText}
+                    {children}
                 </button>
             )}
         </>
