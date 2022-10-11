@@ -1,10 +1,15 @@
+import { useListStore } from '@/store'
 import styles from '@/styles/Card.module.scss'
 
 interface Props {
+    listId: string
+    taskId: string
     children?: React.ReactNode
 }
 
-export default function Card({ children }: Props) {
+export default function Card({ listId, taskId, children }: Props) {
+    const { removeItem } = useListStore()
+
     return (
         <section className={styles.card}>
             <p>
@@ -12,7 +17,11 @@ export default function Card({ children }: Props) {
             </p>
             <div className={styles.icons}>
                 <img src="/edit-icon.svg" alt="Edit Icon" />
-                <img src="/delete-icon.svg" alt="Delete Icon" />
+                <img
+                    src="/delete-icon.svg"
+                    alt="Delete Icon"
+                    onClick={() => removeItem({ listId, taskId })}
+                />
             </div>
         </section>
     )

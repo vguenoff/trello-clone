@@ -15,10 +15,17 @@ export interface AddItemParams {
     text: string
 }
 
+export interface RemoveItemParams {
+    listId: string
+    taskId: string
+}
+
 export interface ListState {
     lists: List[]
     addItem({ listId, text }: AddItemParams): void
+    removeItem({ listId, taskId }: RemoveItemParams): void
     addList(title: string): void
+    removeList(listId: string): void
 }
 // Props
 export interface AddItemProps {

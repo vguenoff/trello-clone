@@ -32,6 +32,18 @@ body,
 
 div,
 input,
-button {
+button,
+img {
     border-radius: 3px;
+}
+
+img {
+    width: 20px;
+    height: 20px;
+    padding: 2px;
+
+    &:hover {
+        background-color: white;
+        opacity: 1;
+    }
 }
