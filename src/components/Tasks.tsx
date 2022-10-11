@@ -10,7 +10,13 @@ export default function Tasks({ id: listId, title, tasks }: List) {
     return (
         <div className={styles.tasks}>
             <section className={styles.header}>
-                <h3>{title}</h3>
+                <SetItem
+                    actionButtonText="Update List Title"
+                    onSet={console.log}
+                    dark
+                >
+                    <h3>{title}</h3>
+                </SetItem>
                 <div className={styles.icons}>
                     <img src="/edit-icon.svg" alt="Edit Icon" />
                     <img
@@ -32,7 +38,7 @@ export default function Tasks({ id: listId, title, tasks }: List) {
                 onSet={text => addItem({ listId, text })}
                 dark
             >
-                + Add another item
+                <div className="add">+ Add another item</div>
             </SetItem>
         </div>
     )

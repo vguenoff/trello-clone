@@ -28,7 +28,7 @@ export interface ListState {
     removeList(listId: string): void
 }
 // Props
-export interface AddItemProps {
+export interface SetItemProps {
     children?: React.ReactNode
     actionButtonText: string
     onSet(text: string): void

@@ -12,7 +12,7 @@ export default function App() {
                 <Tasks key={id} {...{ id, title, tasks }} />
             ))}
             <SetItem actionButtonText="Create" onSet={title => addList(title)}>
-                + Add another list
+                <div className="add">+ Add another list</div>
             </SetItem>
         </section>
     )

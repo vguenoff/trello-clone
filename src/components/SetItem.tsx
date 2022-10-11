@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, SyntheticEvent } from 'react'
-import { AddItemProps } from '@/types'
+import { SetItemProps } from '@/types'
 import styles from '@/styles/SetItem.module.scss'
 
 export default function SetItem({
@@ -7,7 +7,7 @@ export default function SetItem({
     actionButtonText,
     onSet,
     dark,
-}: AddItemProps) {
+}: SetItemProps) {
     const [showAddForm, setShowAddForm] = useState(false)
     const [inputValue, setInputValue] = useState('')
     const inputRef = useRef<HTMLInputElement>(null)
