@@ -10,6 +10,7 @@ const useListStore = create<ListState>()(
     devtools(
         set => ({
             lists: initialList,
+            // Actions
             addItem({ listId, text }) {
                 set(
                     produce(({ lists }) => {
@@ -19,6 +20,9 @@ const useListStore = create<ListState>()(
                     }),
                 )
             },
+            // removeItem
+            // editItem
+            // moveItem
             addList(title) {
                 set(
                     produce(({ lists }) => {

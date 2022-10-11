@@ -9,6 +9,7 @@
         "preview": "vite preview"
     },
     "dependencies": {
+        "framer-motion": "^7.5.3",
         "immer": "^9.0.15",
         "nanoid": "^4.0.0",
         "react": "^18.2.0",

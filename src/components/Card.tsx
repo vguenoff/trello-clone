@@ -5,5 +5,15 @@ interface Props {
 }
 
 export default function Card({ children }: Props) {
-    return <div className={styles.card}>{children}</div>
+    return (
+        <section className={styles.card}>
+            <p>
+                <span>{children}</span>
+            </p>
+            <div className={styles.icons}>
+                <img src="/edit-icon.svg" alt="Edit Icon" />
+                <img src="/delete-icon.svg" alt="Delete Icon" />
+            </div>
+        </section>
+    )
 }

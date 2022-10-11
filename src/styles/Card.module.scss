@@ -5,4 +5,42 @@
     padding: 10px;
     max-width: 300px;
     box-shadow: #091e4240 0px 1px 0px 0px;
+    display: flex;
+    justify-content: space-between;
+
+    p {
+        margin: 0;
+        max-width: 85%;
+        font-size: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    &:hover {
+        background-color: #f9f7f7;
+
+        .icons {
+            visibility: visible;
+        }
+    }
+
+    .icons {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        visibility: hidden;
+
+        img {
+            width: 20px;
+            height: 20px;
+            padding: 2px;
+
+            &:hover {
+                border-radius: 2px;
+                background-color: white;
+                opacity: 1;
+            }
+        }
+    }
 }
