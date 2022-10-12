@@ -8,13 +8,13 @@ export default function SetItem({
     onSet,
     dark,
 }: SetItemProps) {
-    const [showAddForm, setShowAddForm] = useState(false)
+    const [showForm, setShowForm] = useState(false)
     const [inputValue, setInputValue] = useState('')
     const inputRef = useRef<HTMLInputElement>(null)
 
     useEffect(() => {
         inputRef.current?.focus()
-    }, [showAddForm])
+    }, [showForm])
 
     const onSubmit = (e: SyntheticEvent) => {
         e.preventDefault()
@@ -27,12 +27,12 @@ export default function SetItem({
 
     const clearInput = () => {
         setInputValue('')
-        setShowAddForm(false)
+        setShowForm(false)
     }
 
     return (
         <>
-            {showAddForm ? (
+            {showForm ? (
                 <form
                     {...{ onSubmit }}
                     className={styles.addItemForm}
@@ -54,7 +54,7 @@ export default function SetItem({
                 <button
                     className={styles.addItem}
                     style={{ color: dark ? 'navy' : 'white' }}
-                    onClick={() => setShowAddForm(true)}
+                    onClick={() => setShowForm(true)}
                 >
                     {children}
                 </button>
