@@ -1,5 +1,5 @@
 import Card from '@/components/Card'
-import SetItem from '@/components/SetItem'
+import AddItem from '@/components/AddItem'
 import { List } from '@/types'
 import { useListStore } from '@/store'
 import styles from '@/styles/Tasks.module.scss'
@@ -10,13 +10,13 @@ export default function Tasks({ id: listId, title, tasks }: List) {
     return (
         <div className={styles.tasks}>
             <section className={styles.header}>
-                <SetItem
+                <AddItem
                     actionButtonText="Update List Title"
-                    onSet={console.log}
+                    onAdd={console.log}
                     dark
                 >
                     <h3>{title}</h3>
-                </SetItem>
+                </AddItem>
                 <div className={styles.icons}>
                     <img
                         src="/edit-icon.svg"
@@ -38,13 +38,13 @@ export default function Tasks({ id: listId, title, tasks }: List) {
                     </Card>
                 )
             })}
-            <SetItem
+            <AddItem
                 actionButtonText="Create"
-                onSet={text => addItem({ listId, text })}
+                onAdd={text => addItem({ listId, text })}
                 dark
             >
                 <div className="add">+ Add another item</div>
-            </SetItem>
+            </AddItem>
         </div>
     )
 }

@@ -1,37 +1,34 @@
-import { useState, SyntheticEvent } from 'react'
-import { SetItemProps } from '@/types'
-import useInputFocus from '@/hooks/useInputFocus'
-import styles from '@/styles/SetItem.module.scss'
+import { SyntheticEvent } from 'react'
+import { AddItemProps } from '@/types'
+import styles from '@/styles/AddItem.module.scss'
+import useAddItem from '@/hooks/useSetItem'
 
-export default function SetItem({
+export default function AddItem({
     children,
     actionButtonText,
-    onSet,
+    onAdd,
     dark,
-}: SetItemProps) {
-    const [showForm, setShowForm] = useState(false)
-    const [inputValue, setInputValue] = useState('')
-    const inputRef = useInputFocus(showForm)
-
-    const onSubmit = (e: SyntheticEvent) => {
-        e.preventDefault()
-
-        if (!inputValue) return
-
-        onSet(inputValue)
-        clearInput()
-    }
-
-    const clearInput = () => {
-        setInputValue('')
-        setShowForm(false)
-    }
+}: AddItemProps) {
+    const {
+        showForm,
+        setShowForm,
+        inputValue,
+        setInputValue,
+        clearInput,
+        inputRef,
+    } = useAddItem()
 
     return (
         <>
             {showForm ? (
                 <form
-                    {...{ onSubmit }}
+                    onSubmit={(e: SyntheticEvent) => {
+                        e.preventDefault()
+                        if (!inputValue) return
+
+                        onAdd(inputValue)
+                        clearInput()
+                    }}
                     className={styles.addItemForm}
                     onKeyUp={e => e.key === 'Escape' && clearInput()}
                 >
