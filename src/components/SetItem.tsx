@@ -43,7 +43,12 @@ export default function SetItem({
                         onChange={e => setInputValue(e.target.value)}
                         ref={inputRef}
                     />
-                    <button type="submit">{actionButtonText}</button>
+                    <div>
+                        <button type="submit">{actionButtonText}</button>
+                        <button type="reset" onClick={() => clearInput()}>
+                            Close
+                        </button>
+                    </div>
                 </form>
             ) : (
                 <button

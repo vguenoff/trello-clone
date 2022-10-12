@@ -4,6 +4,7 @@
     flex-direction: column;
     width: 100%;
     align-items: flex-start;
+    padding-right: 5px;
 
     input {
         border: none;
@@ -19,13 +20,27 @@
         }
     }
 
+    div {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
     button {
-        background-color: lightseagreen;
         border: none;
         box-shadow: none;
         color: #fff;
-        padding: 6px 12px;
+        padding: 5px;
         text-align: center;
+        cursor: pointer;
+
+        &[type='submit'] {
+            background-color: lightseagreen;
+        }
+
+        &[type='reset'] {
+            background-color: tomato;
+        }
     }
 }
 

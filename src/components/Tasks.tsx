@@ -19,10 +19,15 @@ export default function Tasks({ id: listId, title, tasks }: List) {
                     <h3>{title}</h3>
                 </SetItem>
                 <div className={styles.icons}>
-                    <img src="/edit-icon.svg" alt="Edit Icon" />
+                    <img
+                        src="/edit-icon.svg"
+                        alt="Edit Icon"
+                        title="Edit List"
+                    />
                     <img
                         src="/delete-icon.svg"
                         alt="Delete Icon"
+                        title="Delete List"
                         onClick={() => removeList(listId)}
                     />
                 </div>

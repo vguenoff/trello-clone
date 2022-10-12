@@ -10,26 +10,24 @@
         display: flex;
         justify-content: space-between;
         margin-bottom: 5px;
+        padding: 0 5px;
 
         h3 {
-            padding: 10px;
             margin: 0;
-            // width: 60%;
-        }
-
-        &:hover {
-            background-color: #f9f7f7;
-
-            .icons {
-                visibility: visible;
-            }
         }
 
         .icons {
             padding: 10px 0;
             display: flex;
-            visibility: hidden;
+            flex-direction: column;
             cursor: pointer;
+            img {
+                border: 1px solid rgba(0, 0, 139, 0.1);
+
+                &:hover {
+                    border: 1px solid darkblue;
+                }
+            }
         }
     }
 }

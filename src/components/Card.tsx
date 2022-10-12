@@ -16,10 +16,11 @@ export default function Card({ listId, taskId, children }: Props) {
                 <span>{children}</span>
             </p>
             <div className={styles.icons}>
-                <img src="/edit-icon.svg" alt="Edit Icon" />
+                <img src="/edit-icon.svg" alt="Edit Icon" title="Edit Card" />
                 <img
                     src="/delete-icon.svg"
                     alt="Delete Icon"
+                    title="Delete Card"
                     onClick={() => removeItem({ listId, taskId })}
                 />
             </div>
