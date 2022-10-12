@@ -1,5 +1,6 @@
-import { useEffect, useRef, useState, SyntheticEvent } from 'react'
+import { useState, SyntheticEvent } from 'react'
 import { SetItemProps } from '@/types'
+import useInputFocus from '@/hooks/useInputFocus'
 import styles from '@/styles/SetItem.module.scss'
 
 export default function SetItem({
@@ -10,11 +11,7 @@ export default function SetItem({
 }: SetItemProps) {
     const [showForm, setShowForm] = useState(false)
     const [inputValue, setInputValue] = useState('')
-    const inputRef = useRef<HTMLInputElement>(null)
-
-    useEffect(() => {
-        inputRef.current?.focus()
-    }, [showForm])
+    const inputRef = useInputFocus(showForm)
 
     const onSubmit = (e: SyntheticEvent) => {
         e.preventDefault()

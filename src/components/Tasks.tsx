@@ -14,7 +14,6 @@ export default function Tasks({ id: listId, title, tasks }: List) {
                     actionButtonText="Update List Title"
                     onSet={console.log}
                     dark
-                    // edit icon?
                 >
                     <h3>{title}</h3>
                 </SetItem>
